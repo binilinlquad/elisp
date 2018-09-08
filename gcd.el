@@ -15,7 +15,7 @@
 
 ;;; Code:
 (defun gcd-loop(x y)
-  "Find greatest common divisor"
+  "Find greatest common divisor for (X) and (Y)."
   ;; find the smaller number as divisor
   (let (divisor x)
     (if (> x y)
@@ -42,7 +42,7 @@
 ;; use simple euclid gcd that i got from wikipedia
 ;; (not in the loop, etc) with looping
 (defun gcd-euclid-loop(x y)
-  "Find common division with euclide algorithm and looping"
+  "Find common division for (X) and (Y) with euclid algorithm and looping."
   (loop
    (cond
     ((and (<= x 0) (<= y 0)) (return 0))
@@ -53,13 +53,13 @@
 
 ;; (not in the loop, etc) with looping
 (defun gcd-euclid-by-mod(x y)
-  "Find common division with euclide algorithm and looping"
+  "Find common division for (X) and (Y) with euclid algorithm recursively."
   (if (= y 0)
       x
     (gcd-euclid-by-mod y (mod x y))))
 
 (defun gcd (x y)
-  "Look common divisor between X and Y."
+  "Look common divisor for (X) and (Y)."
   (interactive "nfirst: \nnsecond: ")
   (message "Commond Divisor: %d" (gcd-euclid-by-mod x y)))
 
